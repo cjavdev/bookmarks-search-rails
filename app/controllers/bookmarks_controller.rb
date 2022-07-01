@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :require_user!
+  before_action :require_subscribed_user!
 
   def index
     client = TwitterClient.new(current_user)

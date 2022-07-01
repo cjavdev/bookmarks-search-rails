@@ -75,3 +75,6 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth-twitter2", "~> 0.1.0"
 
 gem "rest-client", "~> 2.1"
+
+gem "pay", "~> 4.0"
+gem "stripe", "~> 6.5"

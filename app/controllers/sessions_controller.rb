@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
+  def logout
+    session[:user_id] = nil
+    redirect_to "/"
+  end
+
   def create
     user_info = request.env['omniauth.auth']
 
