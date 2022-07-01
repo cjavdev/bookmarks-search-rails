@@ -1,0 +1,27 @@
+<h1 class="text-3xl font-bold pt-8">Bookmarks</h1>
+
+<div class="pt-8">
+  <% @folders.each do |id, name| %>
+    <a class="underline inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800" href="/bookmarks?folder=<%= id %>"><%= name %></a>
+  <% end %>
+<div>
+
+
+<% @bookmarks.each do |mark| %>
+  <% author = @authors[mark[:author_id]] %>
+  <div class="flex pt-8">
+    <div class="mr-4 flex-shrink-0">
+      <img class="inline-block h-14 w-14 rounded-full" src="<%= author[:profile_image_url] %>" alt="Photo of <%= author[:name] %>." />
+    </div>
+    <div>
+      <h4 class="text-lg font-bold"><%= author[:name] %></h4>
+      <span class="">
+        <a class="underline" href="https://twitter.com/<%= author[:username] %>" target="_blank">
+          @<%= author[:username] %>
+        </a>
+      </span>
+      <p class="mt-1"><%= mark[:text] %></p>
+      <span class="text-sm text-gray-400"><%= time_ago_in_words(mark[:created_at]) %> ago.</span>
+    </div>
+  </div>
+<% end %>
