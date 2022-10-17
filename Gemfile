@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.1.2"
 
 # Use main development branch of Rails
 gem "rails", github: "rails/rails", branch: "main"
@@ -67,14 +67,9 @@ group :development do
   # gem "spring"
 end
 
-
 gem "omniauth", "~> 2.1"
-
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-
 gem "omniauth-twitter2", "~> 0.1.0"
-
+gem "pay"
 gem "rest-client", "~> 2.1"
-
-gem "pay", "~> 4.0"
 gem "stripe", "~> 6.5"

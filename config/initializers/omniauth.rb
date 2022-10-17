@@ -6,6 +6,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     Rails.application.credentials.dig(:twitter, :client_id),
     Rails.application.credentials.dig(:twitter, :client_secret),
     callback_path: '/auth/twitter2/callback',
-    scope: 'tweet.read users.read bookmark.read offline.access',
+    scope: 'tweet.read users.read bookmark.read space.read offline.access',
   )
 end

@@ -259,7 +259,7 @@ DEPENDENCIES
   omniauth (~> 2.1)
   omniauth-rails_csrf_protection (~> 1.0)
   omniauth-twitter2 (~> 0.1.0)
-  pay (~> 4.0)
+  pay
   pg (~> 1.1)
   puma (~> 5.0)
   rails!
@@ -273,7 +273,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.1.2
