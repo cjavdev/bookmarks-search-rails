@@ -1,17 +1,17 @@
 class User < ApplicationRecord
-  pay_customer default_payment_processor: :stripe, stripe_attributes: :stripe_attributes
+  has_many :subscriptions
 
-  def email
-    "#{nickname}@example.com"
+  def subscribed?
+    subscriptions.any?(&:active?)
   end
 
-  def stripe_attributes(user)
-    {
-      metadata: {
-        twitter_id: twitter_id,
-        user_id: id,
-        nickname: "@#{nickname}"
-      }
-    }
+  def lazy_stripe_customer_id
+    return stripe_customer_id if stripe_customer_id
+    customer = Stripe::Customer.create(metadata: {
+      user_id: id,
+    })
+
+    update(stripe_customer_id: customer.id)
+    customer.id
   end
 end

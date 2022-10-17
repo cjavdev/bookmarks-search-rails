@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :token
       t.string :refresh_token
+      t.string :stripe_customer_id
       t.datetime :expires_at
 
       t.timestamps

@@ -186,8 +186,6 @@ GEM
     omniauth-twitter2 (0.1.0)
       omniauth
       omniauth-oauth2 (~> 1.0)
-    pay (4.0.1)
-      rails (>= 6.0.0)
     pg (1.4.1)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -259,7 +257,6 @@ DEPENDENCIES
   omniauth (~> 2.1)
   omniauth-rails_csrf_protection (~> 1.0)
   omniauth-twitter2 (~> 0.1.0)
-  pay
   pg (~> 1.1)
   puma (~> 5.0)
   rails!

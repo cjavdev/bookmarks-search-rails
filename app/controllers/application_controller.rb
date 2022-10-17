@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_subscribed_user!
-    if !current_user.payment_processor.subscribed?
+    if !current_user.subscribed?
       redirect_to "/checkout"
     end
   end
