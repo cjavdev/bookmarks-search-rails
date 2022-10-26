@@ -1,6 +1,7 @@
 class BillingsController < ApplicationController
   def show
     @portal_session = Stripe::BillingPortal::Session.create(
+      return_url: bookmarks_url,
       customer: current_user.lazy_stripe_customer_id,
     )
 
