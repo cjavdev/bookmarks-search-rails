@@ -5,16 +5,22 @@ class WebhooksController < ApplicationController
     payload = request.body.read
     event = nil
     signature = request.env['HTTP_STRIPE_SIGNATURE']
-    endpoint_secret = Rails.application.credentials.dig(:stripe, :webhook_secret)
+    endpoint_secrets = Rails.application.credentials.dig(:stripe, :webhook_secrets)
 
     # Retrieve the event by verifying the signature using the raw body and secret.
     begin
       event = Stripe::Webhook.construct_event(
-        payload, signature, endpoint_secret
+        payload, signature, endpoint_secrets.first
       )
     rescue Stripe::SignatureVerificationError
-      puts "⚠️  Webhook signature verification failed. #{err.message})"
-      status 400
+      begin
+        event = Stripe::Webhook.construct_event(
+          payload, signature, endpoint_secrets.last
+        )
+      rescue Stripe::SignatureVerificationError => err
+        puts "⚠️  Webhook signature verification failed. #{err.message})"
+        status 400
+      end
     end
 
     case event.type
