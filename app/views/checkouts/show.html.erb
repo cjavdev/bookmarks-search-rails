@@ -71,12 +71,12 @@
               <span class="ml-3 text-xl font-medium text-gray-500"> USD </span>
             </div>
             <div class="mt-6">
-              <div class="rounded-md shadow">
-                <form action="/checkout" method="POST" data-turbo="false">
-                  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>"/>
-                  <button type="submit" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900">Get Access</button>
-                </form>
-              </div>
+              <form action="/checkout" method="POST" data-turbo="false">
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>"/>
+                <div class="rounded-md shadow">
+                  <button type="submit" class="flex items-center justify-center w-full px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900">Get Access</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
